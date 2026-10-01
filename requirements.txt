@@ -1,4 +1,4 @@
 flask
 requests
-dotenv
-os
+python-dotenv
+gunicorn
