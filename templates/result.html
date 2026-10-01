@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AQI Result - {{ city }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="container">
+
+        {% if data %}
+            <p class="remark">{{ remark }}</p>
+
+            <h1>🌿 AQI Result</h1>
+
+            <div class="result-card">
+                <h2>{{ data.city }}</h2>
+                <div class="aqi-number">{{ data.aqi }}</div>
+                <p class="pollutant">Main Pollutant: {{ data.dominant_pollutant }}</p>
+                <p class="updated">Last Updated: {{ data.updated_at }}</p>
+            </div>
+
+            <div class="aqi-levels">
+                <h3>AQI Scale</h3>
+                <div class="level good">0-50 — Good</div>
+                <div class="level satisfactory">51-100 — Satisfactory</div>
+                <div class="level moderate">101-200 — Moderate</div>
+                <div class="level poor">201-300 — Poor</div>
+                <div class="level very-poor">301-400 — Very Poor</div>
+                <div class="level severe">401-500 — Severe</div>
+            </div>
+
+        {% else %}
+
+            <div class="error">
+                <h2>❌ City Not Found</h2>
+                <p>Could not find AQI data for "{{ city }}"</p>
+                <p>Try using a major city name like delhi, mumbai, pune</p>
+            </div>
+
+        {% endif %}
+
+        <a href="/" class="back-btn">← Search Another City</a>
+
+    </div>
+
+</body>
+</html>

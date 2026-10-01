@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AQI Tracker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="container">
+
+        <h1>🌿 Live AQI Tracker</h1>
+        <p>Check real-time air quality of any city</p>
+
+        <form action="/result" method="POST">
+            <input 
+                type="text" 
+                name="city" 
+                placeholder="Enter city name... (e.g. delhi, mumbai)"
+                required
+            >
+            <button type="submit">Check AQI</button>
+        </form>
+
+    </div>
+
+</body>
+</html>
